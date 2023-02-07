@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                xmlns:local="clr-namespace:MauiApp4.Helper"
+             x:Class="MauiApp4.MainPage"
+             BackgroundColor="White">
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+            .shadow{
+                box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+            }
+            ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <local:CustomFrame HeightRequest="100" WidthRequest="200" BackgroundColor="Red" HasShadow="True">
+                
+            </local:CustomFrame>
+
+            <!-- shadow2 content view-->
+            <ContentView x:Name="shadow2ContentView"  VerticalOptions="Center" HorizontalOptions="Center" Margin="20">
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                    <OnPlatform x:TypeArguments="View">
+                        <On Platform="Android">
+                            <StackLayout>
+                                <local:CustomFrame  WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center"   BackgroundColor="#f3f3f3" CornerRadius="10" >
+
+                                </local:CustomFrame>
+                                <local:CustomFrame  WidthRequest="100" HeightRequest="100" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,30,0,0" BackgroundColor="#f3f3f3" CornerRadius="10" >
+
+                                </local:CustomFrame>
+                            </StackLayout>
+                        </On>
+                    </OnPlatform>
+
+
+                </StackLayout>
+            </ContentView>
+            
+            
+            <Image
+                Source="dotnet_bot.png"
+                SemanticProperties.Description="Cute dot net bot waving hi to you!"
+                HeightRequest="200"
+                StyleClass="shadow"
+                HorizontalOptions="Center">
+            </Image>
+
+            <Label
+                Text="Hello, World!"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="32"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Welcome to .NET Multi-platform App UI"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
+                FontSize="18"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CounterBtn"
+                Text="Click me"
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="OnCounterClicked"
+                HorizontalOptions="Center" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
